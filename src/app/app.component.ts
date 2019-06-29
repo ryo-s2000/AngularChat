@@ -20,12 +20,12 @@ const COMMENTS: Comment[] = [ // クラスを元にコメントを作成
 export class AppComponent {
   public content = '';
   public comments = COMMENTS;
-  public current_user = CURRENT_USER;
+  public currentUser = CURRENT_USER;
 
   // 新しいコメントを追加
   addComment(comment: string) {
      if (comment) {
-       this.comments.push(new Comment(this.current_user, comment));
+       this.comments.push(new Comment(this.currentUser, comment));
      }
   }
 }
