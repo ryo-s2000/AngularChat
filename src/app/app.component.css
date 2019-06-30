@@ -68,3 +68,17 @@
   background-color: #fff;
   border-top: 1px solid #DDDDDD;
 }
+
+.page .card .media-body h4.media-heading .btn { /*追加*/
+  margin: 0 3px;
+}
+
+.page .card .media-body div.edit-buttons { /*追加*/
+  margin-top: 10px;
+  text-align: center;
+}
+
+.page .card .media-body div.edit-buttons .btn { /*追加*/
+  margin: 0 5px;
+  width: 100px;
+}

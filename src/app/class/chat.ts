@@ -8,6 +8,10 @@ export class User {
     this.uid = uid;
     this.name = name;
   }
+
+  deserialize() {
+    return Object.assign({}, this);
+  }
 }
 
 export class Comment {
@@ -15,11 +19,26 @@ export class Comment {
   initial: string;
   content: string;
   date: number;
+  key?: string; // 追加
+  editFlag?: boolean; // 追加
 
   constructor(user: User, content: string) {
     this.user = user;
     this.initial = user.name.slice(0, 1);
     this.content = content;
     this.date = +moment();
+  }
+
+  deserialize() {
+    this.user = this.user.deserialize();
+    return Object.assign({}, this);
+  }
+
+  // 取得した日付を反映し、更新フラグをつける
+  setData(date: number, key: string): Comment { // 更新
+    this.date = date;
+    this.key = key; // 追加
+    this.editFlag = false; // 追加
+    return this;
   }
 }
